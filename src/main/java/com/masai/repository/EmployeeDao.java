@@ -7,9 +7,9 @@ import com.masai.model.Employee;
 import com.masai.pojo.EmployeePojo;
 
 @Repository
-public interface EmployeeDao extends JpaRepository<EmployeePojo, Integer>{
+public interface EmployeeDao extends JpaRepository<Employee, Integer>{
 
-	void save(Employee employee);
+//	Employee save(Employee employee);
 
 	
 

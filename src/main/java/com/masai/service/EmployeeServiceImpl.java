@@ -2,6 +2,9 @@ package com.masai.service;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +24,25 @@ public class EmployeeServiceImpl implements EmployeeService{
 		employee.setEmployeeId(employeepojo.getEmployeeId());
 		employee.setEmployeeName(employeepojo.getEmployeeName());
 		employee.setDesignation(employeepojo.getDesignation());
-		employeedao.save(employee);
-		return "saved";
+		Employee em = employeedao.save(employee);
+		if(em!=null) {
+			return "employee saved succefully";
+		}
+		return "not saved";
+	}
+
+	@Override
+	public List<EmployeePojo> getAllEmployee() {
+		List<EmployeePojo> employeePojos = new ArrayList<>();
+		List<Employee> employee = employeedao.findAll();
+		for(Employee em:employee) {
+			EmployeePojo employeePojo = new EmployeePojo();
+			employeePojo.setEmployeeId(em.getEmployeeId());
+			employeePojo.setEmployeeName(em.getEmployeeName());
+			employeePojo.setDesignation(em.getDesignation());
+			employeePojos.add(employeePojo);
+		}
+		return employeePojos;
 	}
 
 	

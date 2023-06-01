@@ -1,7 +1,9 @@
 package com.masai.pojo;
 
+
 import jakarta.persistence.Id;
 import lombok.Data;
+
 
 @Data
 public class EmployeePojo {
