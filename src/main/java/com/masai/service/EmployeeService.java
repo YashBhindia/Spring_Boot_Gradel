@@ -10,5 +10,9 @@ public interface EmployeeService {
 
 	public String createEmployee(EmployeePojo employeepojo);
 	
-	public List<EmployeePojo> getAllEmployee(); 
+	public List<EmployeePojo> getAllEmployee();
+	
+	public String deleteEmployee(int employeeId);
+	
+	public EmployeePojo getEmployeeById(int id);
 }
